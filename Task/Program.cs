@@ -4,6 +4,7 @@
 //["1234","1567","-2","computer science"] -> ["-2"]
 //["Russia", "Denmark","Kazan"]` -> []
 
+//2
 string[] ArrayStrings(int size)
 {
     string[] arrStr = new string[size];
