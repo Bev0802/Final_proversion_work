@@ -5,31 +5,51 @@
 //["Russia", "Denmark","Kazan"]` -> []
 
 //2
-string[] ArrayStrings(int size)
+string[] ArrayStrings()
 {
+    int size = 0;
     string[] arrStr = new string[size];
-    Console.WriteLine($"Введите {size} слов(a) для заполения массива");
-
-    for (int i = 0; i < arrStr.Length; i++)  
+    string? word = "0";
+    Console.WriteLine($"Введите слова для заполения массива, по окончании ввода нажмите два раза Enter");
+    do
     {
-        string? word = Console.ReadLine();
-        if (word != null) arrStr[i] = word;
-    }
+        word = Console.ReadLine();
+        if (word != "")
+        {
+            size++;
+            string[] arrStrTemp = new string[size];
+            for (int i = 0; i < arrStrTemp.Length - 1; i++)
+            {
+                arrStrTemp[i] = arrStr[i];
+                arrStrTemp[size - 1] = word;
+                arrStr = arrStrTemp;
+            }
+        }
+    } while (word != "") ;
     return arrStr;
+        
 }
 
-void PrintArray(string[] arr)
+    void PrintArray(string[] arr)
 {
-    Console.Write("[");
-    for (int i = 0; i < arr.Length; i++)
-    {
-        Console.Write(arr[i]);
-        if (i < arr.Length - 1) Console.Write(", ");
+        Console.Write("[");
+        for (int i = 0; i < arr.Length; i++)
+        {
+            Console.Write(arr[i]);
+            if (i < arr.Length - 1) Console.Write(", ");
+        }
+        Console.WriteLine("]");
     }
-    Console.WriteLine("]");
+
+string[] 
+    string[] arrayStrings = ArrayStrings();
+    PrintArray(arrayStrings);
+
+string[] SelectionArrayStrings(string[] arrStr)
+{
+    int size = 0;
+    string[] SelArrStr = new string[size];
+
+    return SelArrStr; 
 }
-
-string[] arrayStrings = ArrayStrings(3);
-PrintArray(arrayStrings);
-
 
