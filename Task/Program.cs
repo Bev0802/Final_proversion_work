@@ -4,12 +4,13 @@
 //["1234","1567","-2","computer science"] -> ["-2"]
 //["Russia", "Denmark","Kazan"]` -> []
 
-//2
+//МЕТОДЫ
+//Метод формирует массив строк с консоли любой длинны.
 string[] ArrayStrings()
 {
     int size = 0;
     string[] arrStr = new string[size];
-    string? word = "0";
+    string? word = string.Empty;
     Console.WriteLine($"Введите слова для заполения массива, по окончании ввода нажмите два раза Enter");
     do
     {
@@ -19,37 +20,58 @@ string[] ArrayStrings()
             size++;
             string[] arrStrTemp = new string[size];
             for (int i = 0; i < arrStrTemp.Length - 1; i++)
-            {
                 arrStrTemp[i] = arrStr[i];
                 arrStrTemp[size - 1] = word;
                 arrStr = arrStrTemp;
-            }
+
         }
-    } while (word != "") ;
+    } while (word != "");
     return arrStr;
-        
 }
 
-    void PrintArray(string[] arr)
+//Метод выводит на печать массив строк.
+void PrintArray(string[] arr)
 {
-        Console.Write("[");
-        for (int i = 0; i < arr.Length; i++)
-        {
-            Console.Write(arr[i]);
-            if (i < arr.Length - 1) Console.Write(", ");
-        }
-        Console.WriteLine("]");
+    Console.Write("[");
+    for (int i = 0; i < arr.Length; i++)
+    {
+        Console.Write(arr[i]);
+        if (i < arr.Length - 1) Console.Write(", ");
     }
+    Console.WriteLine("]");
+}
 
-string[] 
-    string[] arrayStrings = ArrayStrings();
-    PrintArray(arrayStrings);
-
-string[] SelectionArrayStrings(string[] arrStr)
+//Метод делает отбор строк из другого массива
+string[] SelectionArrayStrings(string[] arrStr, int Length)
 {
     int size = 0;
-    string[] SelArrStr = new string[size];
+    string[] selArrStr = new string[size];
+    string? word = string.Empty;
+    
+    for (int i = 0; i < arrStr.Length; i++)
+    {
+        word = arrStr[i];
 
-    return SelArrStr; 
+        if (word.Length <= Length && word.Length > 0)
+        {
+            size++;
+            string[] arrStrtemp = new string[size];
+
+            for (int k = 0; k < arrStrtemp.Length-1; k++)
+
+            arrStrtemp[k] = selArrStr[k];
+            arrStrtemp[size - 1] = word;
+            selArrStr = arrStrtemp;
+
+        }            
+    }
+    return selArrStr;
 }
 
+
+string[] arrayStrings = ArrayStrings();
+PrintArray(arrayStrings);
+Console.WriteLine("");
+
+string[] selectionArrayStrings = SelectionArrayStrings(arrayStrings, 3);
+PrintArray(selectionArrayStrings);
