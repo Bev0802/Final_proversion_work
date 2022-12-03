@@ -73,6 +73,3 @@ string[] SelectionArrayStrings(string[] arrStr, int Length)
     }
     return selArrStr;
 }
-
-
-
