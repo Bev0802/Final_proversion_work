@@ -19,11 +19,11 @@ string[] ArrayStrings()
     int size = 0;
     string[] arrStr = new string[size];
     string? word = string.Empty;
-    Console.WriteLine($"Введите слова для заполения массива, по окончании ввода нажмите два раза Enter");
+    Console.WriteLine($"Введите слова для заполения массива, по окончании ввода нажмите два раза STOP");
     do
     {
         word = Console.ReadLine();
-        if (word != "")
+        if (word != "STOP")
         {
             size++;
             string[] arrStrTemp = new string[size];
@@ -33,7 +33,7 @@ string[] ArrayStrings()
                 arrStr = arrStrTemp;
 
         }
-    } while (word != "");
+    } while (word != "STOP");
     return arrStr;
 }
 
