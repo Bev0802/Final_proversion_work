@@ -19,7 +19,7 @@ string[] ArrayStrings()
     int size = 0;
     string[] arrStr = new string[size];
     string? word = string.Empty;
-    Console.WriteLine($"Введите слова для заполения массива, по окончании ввода нажмите два раза STOP");
+    Console.WriteLine($"Введите слова для заполения массива, по окончании ввода наберите STOP");
     do
     {
         word = Console.ReadLine();
